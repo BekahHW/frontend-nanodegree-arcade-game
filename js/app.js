@@ -27,14 +27,14 @@ Enemy.prototype.render = function() {
 };
 
 var Player = function(){
-this.sprite = 'images/char-cat-girl.png';
+this.sprite = 'images/char-boy.png';
  this.x=100;
  this.y=200;
-  update(dt)
+  // update(dt)
 
-  render()
+  // render()
 
-  handleInput()
+  // handleInput()
 
   // if (this.y = 600) {
   //   alert You have won!
@@ -49,16 +49,17 @@ Player.prototype.render = function() {
 
 
 // Now instantiate your objects.
-enemy1 = new Enemy(60)
-enemy2 = new Enemy(100)
-enemy3 = new Enemy(200)
-player = new Player(100, 100)
+
+var player = new Player(100, 100, 50)
 // Place all enemy objects in an array called allEnemies
 
-let allEnemies = [enemy1, enemy2, enemy3]
+var allEnemies = [
+new Enemy(0, 50, 25),
+new Enemy(0, 100, 35),
+new Enemy(0, 200, 45)
+]
 
 // Place the player object in a variable called player
-const player = {}
 
 
 
