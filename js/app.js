@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(y, speed) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,13 +8,14 @@ var Enemy = function(y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
     this.y = y;
-    // this.speed = Math.floor(Math.random() * 3 + 2);
-
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+  this.speed = Math.floor(Math.random() * dt + 2);
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -26,14 +27,18 @@ Enemy.prototype.render = function() {
 };
 
 var Player = function(){
-  this.sprite = 'images/char-cat-girl.png';
+this.sprite = 'images/char-cat-girl.png';
  this.x=100;
  this.y=200;
-  update()
+  update(dt)
 
   render()
 
   handleInput()
+
+  // if (this.y = 600) {
+  //   alert You have won!
+  // }
 }
 
 Player.prototype.render = function() {
@@ -47,7 +52,7 @@ Player.prototype.render = function() {
 enemy1 = new Enemy(60)
 enemy2 = new Enemy(100)
 enemy3 = new Enemy(200)
-player = player.new
+player = new Player(100, 100)
 // Place all enemy objects in an array called allEnemies
 
 let allEnemies = [enemy1, enemy2, enemy3]
@@ -69,3 +74,18 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+Player.prototype.handleInput = function(keyPress) {
+    if (keyPress == 'left') {
+        player.x -= player.speed;
+    }
+    if (keyPress == 'right') {
+        player.x += player.speed;
+    }
+    if (keyPress == 'down') {
+        player.y -= player.speed;
+    }
+    if (keyPress == 'up') {
+        player.x += player.speed;
+    }
+}
