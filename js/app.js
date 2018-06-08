@@ -23,14 +23,16 @@ Enemy.prototype.render = function() {
 
 var Player = function(){
   this.sprite = 'images/char-cat-girl.png';
-
+ this.x=100;
+ this.y=200;
   update()
 
   render()
 
   handleInput()
 }
-
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 // This class requires an update(), render() and
 // a handleInput() method.
 
@@ -43,7 +45,7 @@ player = player.new
 allEnemies = []
 
 // Place the player object in a variable called player
-const player =
+const player = {}
 
 
 
