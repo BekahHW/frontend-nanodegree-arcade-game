@@ -1,3 +1,4 @@
+"use strict";
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -30,7 +31,7 @@ var Player = function(){
 this.sprite = 'images/char-boy.png';
  this.x=100;
  this.y=200;
-  // update(dt)
+
 
   // render()
 
@@ -46,8 +47,9 @@ Player.prototype.render = function() {
   };
 // This class requires an update(), render() and
 // a handleInput() method.
-
-
+Player.prototype.update = function(dt) {
+  this.speed = Math.floor(Math.random() * dt + 2);
+}
 // Now instantiate your objects.
 
 var player = new Player(100, 100, 50)
