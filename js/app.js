@@ -29,17 +29,9 @@ Enemy.prototype.render = function() {
 
 var Player = function(){
 this.sprite = 'images/char-boy.png';
- this.x=100;
- this.y=200;
-
-
-  // render()
-
-  // handleInput()
-
-  // if (this.y = 600) {
-  //   alert You have won!
-  // }
+ this.x=200;
+ this.y=275;
+ this.speed= 50;
 }
 
 Player.prototype.render = function() {
