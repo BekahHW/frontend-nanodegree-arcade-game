@@ -15,7 +15,8 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  this.speed = Math.floor(Math.random() * dt + 2);
+  this.speed  += this.x * (dt);
+;
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -27,11 +28,11 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var Player = function(){
+var Player = function(x, y, speed){
 this.sprite = 'images/char-boy.png';
- this.x=200;
- this.y=275;
- this.speed= 50;
+ this.x= x;
+ this.y= y;
+ this.speed= speed;
 }
 
 Player.prototype.render = function() {
@@ -40,17 +41,29 @@ Player.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
-  this.speed = Math.floor(Math.random() * dt + 2);
+// keep player on screen
+if (this.x > 400) {
+  this.x = 400
+}
+if (this.x < 0) {
+  this.x = 0
+}
+if (this.y > 500) {
+this.y = 500
+}
+if (this.y < -15) {
+  this.y = -15
+}
 }
 // Now instantiate your objects.
 
-var player = new Player(100, 100, 50)
+var player = new Player(200, 275, 50)
 // Place all enemy objects in an array called allEnemies
 
 var allEnemies = [
 new Enemy(0, 50, 25),
-new Enemy(0, 100, 35),
-new Enemy(0, 200, 45)
+new Enemy(50, 100, 35),
+new Enemy(25, 200, 45)
 ]
 
 // Place the player object in a variable called player
@@ -78,9 +91,9 @@ Player.prototype.handleInput = function(keyPress) {
         player.x += player.speed;
     }
     if (keyPress == 'down') {
-        player.y -= player.speed;
+        player.y += player.speed;
     }
     if (keyPress == 'up') {
-        player.x += player.speed;
+        player.y -= player.speed;
     }
 }
