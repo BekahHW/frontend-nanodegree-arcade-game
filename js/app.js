@@ -7,7 +7,7 @@ var Enemy = function(x, y, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = 0;
+    this.x = x;
     this.y = y;
     this.speed = speed;
 };
@@ -15,6 +15,10 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+  if (this.x > 400) {
+    this.x = 0
+    this.speed = Math.floor(Math.random()* 10)
+  }
   this.speed  += this.x * (dt);
 ;
 
@@ -33,6 +37,8 @@ this.sprite = 'images/char-boy.png';
  this.x= x;
  this.y= y;
  this.speed= speed;
+
+
 }
 
 Player.prototype.render = function() {
@@ -51,8 +57,13 @@ if (this.x < 0) {
 if (this.y > 500) {
 this.y = 500
 }
-if (this.y < -15) {
-  this.y = -15
+if (this.y < -20) {
+  this.y = -20
+}
+if (this.y <= -20) {
+  // movement happens after
+  alert ("Congratulations! You've won!")
+  this.y= 275
 }
 }
 // Now instantiate your objects.
@@ -62,8 +73,8 @@ var player = new Player(200, 275, 50)
 
 var allEnemies = [
 new Enemy(0, 50, 25),
-new Enemy(50, 100, 35),
-new Enemy(25, 200, 45)
+new Enemy(50, 150, 35),
+new Enemy(25, 240, 45)
 ]
 
 // Place the player object in a variable called player
