@@ -17,9 +17,9 @@ var Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
   if (this.x > 400) {
     this.x = 0
-    this.speed = Math.floor(Math.random()* 10)
+    this.speed = 10 + Math.floor(Math.random()* 10)
   }
-  this.speed  += this.x * (dt);
+this.x +=  this.speed * (dt) ;
 ;
 
     // You should multiply any movement by the dt parameter
