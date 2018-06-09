@@ -17,7 +17,7 @@ var Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
   if (this.x > 400) {
     this.x = 0
-    this.speed = 10 + Math.floor(Math.random()* 10)
+    this.speed = Math.floor(Math.random()* 160)
   }
 this.x +=  this.speed * (dt) ;
 ;
@@ -27,6 +27,11 @@ this.x +=  this.speed * (dt) ;
     // all computers.
 };
 
+function checkCollisions() {
+  if (this.x == player.x && player.y == this.y){
+    player.y=275
+  }
+}
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
