@@ -15,23 +15,25 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+  this.x +=  this.speed * (dt) ;
+
   if (this.x > 400) {
     this.x = 0
     this.speed = Math.floor(Math.random()* 160)
   }
-this.x +=  this.speed * (dt) ;
-;
-
+// collision check
+// x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight
+  if (this.x> player.x && player.x + 30 && this.y > player.y && this.y
+     < player.y + 25 ){
+    player.y = 275;
+    player.x = 200;
+    console.log('pears')
+  }
+}
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-};
 
-function checkCollisions() {
-  if (this.x == player.x && player.y == this.y){
-    player.y=275
-  }
-}
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
