@@ -8,9 +8,9 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 Getting started
 
-To play the game, you need to first fork the repo and then download it locally. Once you've done that, find the folder and right
-click the index.html file and open it in the browser of your choice. Once you've done that, you have access to the game board
-and your character.
+To play the game, you need to first fork the repo and then download it locally. Once you've done that, find the folder, right
+click the index.html file, and open it in the browser of your choice. Once you've done that, you have access to the game board
+and your character. You're ready to play.
 
 To Play
 

@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     this.x = 0
     this.speed = Math.floor(Math.random()* 160)
   }
-// collision check
+// collision check adapted from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection
   if  (this.x < player.x + 40  && this.x + 70  > player.x &&
 		this.y < player.y + 70 && this.y + 50 > player.y)
      {
@@ -67,13 +67,27 @@ this.y = 500
 if (this.y < -20) {
   this.y = -20
 }
+
 if (this.y <= -20) {
   // movement happens after
-  alert ("Congratulations! You've won!")
-  this.y= 275
+  setTimeout(function() {
+ reset()
+   // alert("Congratulations! You've won!");
+
+ },15)
+setTimeout(function() {
+ alert("Congratulations! You've won!");
+}, 15)
+ // this.y = 275;
+ // this.x = 200
+
 }
 }
 // Now instantiate your objects.
+function reset(){
+  player.y=275;
+  player.x=200;
+}
 
 var player = new Player(200, 275, 50)
 // Place all enemy objects in an array called allEnemies
