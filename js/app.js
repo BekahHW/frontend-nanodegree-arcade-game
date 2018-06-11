@@ -27,7 +27,6 @@ Enemy.prototype.update = function(dt) {
      {
     player.y = 275;
     player.x = 200;
-
   }
 }
     // You should multiply any movement by the dt parameter
@@ -44,8 +43,6 @@ this.sprite = 'images/char-boy.png';
  this.x= x;
  this.y= y;
  this.speed= speed;
-
-
 }
 
 Player.prototype.render = function() {
@@ -69,18 +66,14 @@ if (this.y < -20) {
 }
 
 if (this.y <= -20) {
-  // movement happens after
+  // movement happens after canvas is drawn
   setTimeout(function() {
  reset()
-   // alert("Congratulations! You've won!");
+ }, 15)
 
- },15)
 setTimeout(function() {
  alert("Congratulations! You've won!");
 }, 15)
- // this.y = 275;
- // this.x = 200
-
 }
 }
 // Now instantiate your objects.
@@ -97,10 +90,6 @@ new Enemy(0, 50, 25),
 new Enemy(50, 150, 35),
 new Enemy(25, 240, 45)
 ]
-
-// Place the player object in a variable called player
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
