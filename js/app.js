@@ -22,9 +22,8 @@ Enemy.prototype.update = function(dt) {
     this.speed = Math.floor(Math.random()* 160)
   }
 // collision check
-// x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight
-  if (this.x> player.x && player.x + 30 && this.y > player.y && this.y
-     < player.y + 25 ){
+  if (this.x > player.x && player.x + 50 < this.x && this.y > player.y && this.y
+     < player.y + 50){
     player.y = 275;
     player.x = 200;
     console.log('pears')
