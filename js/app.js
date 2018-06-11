@@ -22,11 +22,12 @@ Enemy.prototype.update = function(dt) {
     this.speed = Math.floor(Math.random()* 160)
   }
 // collision check
-  if (this.x > player.x && player.x + 50 < this.x && this.y > player.y && this.y
-     < player.y + 50){
+  if  (this.x < player.x + 40  && this.x + 70  > player.x &&
+		this.y < player.y + 70 && this.y + 50 > player.y)
+     {
     player.y = 275;
     player.x = 200;
-    console.log('pears')
+
   }
 }
     // You should multiply any movement by the dt parameter
