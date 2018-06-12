@@ -57,8 +57,8 @@ Player.prototype.update = function(dt) {
   if (this.x < 0) {
     this.x = 0;
 }
-  if (this.y > 500) {
-    this.y = 500;
+  if (this.y > 450) {
+    this.y = 450;
 }
   if (this.y < -20) {
     this.y = -20;
@@ -81,7 +81,7 @@ function reset(){
   player.x=200;
 }
 
-const player = new Player(200, 384, 50)
+const player = new Player(200, 400, 50)
 // Place all enemy objects in an array called allEnemies
 
 const allEnemies = [
@@ -104,15 +104,15 @@ document.addEventListener('keyup', function(e) {
 
 Player.prototype.handleInput = function(keyPress) {
   if (keyPress == 'left') {
-      player.x -= 96;
+      player.x -= 90;
     }
   if (keyPress == 'right') {
-      player.x += 96;
+      player.x += 90;
     }
   if (keyPress == 'down') {
-      player.y += 96;
+      player.y += 90;
     }
   if (keyPress == 'up') {
-      player.y -= 96;
+      player.y -= 90;
     }
 }

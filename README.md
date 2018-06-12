@@ -4,7 +4,7 @@ frontend-nanodegree-arcade-game
 Getting started
 There are no dependencies required.
 
-To play the game, you need to first fork the repo and then download it locally. Once you've done that, find the folder, right
+To play the game, you need to first fork the [repo](https://github.com/BekahHW/frontend-nanodegree-arcade-game) and then download it locally. Once you've done that, find the folder, right
 click the index.html file, and open it in the browser of your choice.
 Now you have access to the game board and your character. You're ready to play.
 
