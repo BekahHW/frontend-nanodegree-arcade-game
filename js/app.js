@@ -15,7 +15,7 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  this.x +=  this.speed * (dt) ;
+    this.x +=  this.speed * (dt) ;
 
   if (this.x > 400) {
     this.x = 0
@@ -23,8 +23,7 @@ Enemy.prototype.update = function(dt) {
   }
 // collision check adapted from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection
   if  (this.x < player.x + 40  && this.x + 70  > player.x &&
-		this.y < player.y + 70 && this.y + 50 > player.y)
-     {
+		this.y < player.y + 70 && this.y + 50 > player.y){
     player.y = 275;
     player.x = 200;
   }
@@ -39,10 +38,10 @@ Enemy.prototype.render = function() {
 };
 
 var Player = function(x, y, speed){
-this.sprite = 'images/char-boy.png';
- this.x= x;
- this.y= y;
- this.speed= speed;
+   this.sprite = 'images/char-boy.png';
+   this.x= x;
+   this.y= y;
+   this.speed= speed;
 }
 
 Player.prototype.render = function() {
@@ -52,24 +51,24 @@ Player.prototype.render = function() {
 // a handleInput() method.
 Player.prototype.update = function(dt) {
 // keep player on screen
-if (this.x > 400) {
-  this.x = 400
+  if (this.x > 400) {
+    this.x = 400;
 }
-if (this.x < 0) {
-  this.x = 0
+  if (this.x < 0) {
+    this.x = 0;
 }
-if (this.y > 500) {
-this.y = 500
+  if (this.y > 500) {
+    this.y = 500;
 }
-if (this.y < -20) {
-  this.y = -20
+  if (this.y < -20) {
+    this.y = -20;
 }
 
 if (this.y <= -20) {
   // movement happens after canvas is drawn
   setTimeout(function() {
- reset()
- }, 15)
+    reset()
+    }, 15)
 
 setTimeout(function() {
  alert("Congratulations! You've won!");
@@ -82,7 +81,7 @@ function reset(){
   player.x=200;
 }
 
-var player = new Player(200, 275, 50)
+var player = new Player(200, 384, 50)
 // Place all enemy objects in an array called allEnemies
 
 var allEnemies = [
@@ -106,15 +105,15 @@ document.addEventListener('keyup', function(e) {
 
 Player.prototype.handleInput = function(keyPress) {
     if (keyPress == 'left') {
-        player.x -= player.speed;
+        player.x -= 96;
     }
     if (keyPress == 'right') {
-        player.x += player.speed;
+        player.x += 96;
     }
     if (keyPress == 'down') {
-        player.y += player.speed;
+        player.y += 96;
     }
     if (keyPress == 'up') {
-        player.y -= player.speed;
+        player.y -= 96;
     }
 }
