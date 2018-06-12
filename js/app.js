@@ -1,6 +1,6 @@
 "use strict";
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+const Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -17,12 +17,12 @@ var Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
     this.x +=  this.speed * (dt) ;
 
-  if (this.x > 400) {
+ if (this.x > 400) {
     this.x = 0
     this.speed = Math.floor(Math.random()* 160)
   }
 // collision check adapted from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection
-  if  (this.x < player.x + 40  && this.x + 70  > player.x &&
+ if (this.x < player.x + 40  && this.x + 70  > player.x &&
 		this.y < player.y + 70 && this.y + 50 > player.y){
     player.y = 275;
     player.x = 200;
@@ -37,11 +37,11 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var Player = function(x, y, speed){
-   this.sprite = 'images/char-boy.png';
-   this.x= x;
-   this.y= y;
-   this.speed= speed;
+const Player = function(x, y, speed){
+    this.sprite = 'images/char-boy.png';
+    this.x= x;
+    this.y= y;
+    this.speed= speed;
 }
 
 Player.prototype.render = function() {
@@ -70,21 +70,21 @@ if (this.y <= -20) {
     reset()
     }, 15)
 
-setTimeout(function() {
- alert("Congratulations! You've won!");
-}, 15)
+ setTimeout(function() {
+    alert("Congratulations! You've won!");
+    }, 15)
 }
 }
 // Now instantiate your objects.
 function reset(){
-  player.y=275;
+  player.y=384;
   player.x=200;
 }
 
-var player = new Player(200, 384, 50)
+const player = new Player(200, 384, 50)
 // Place all enemy objects in an array called allEnemies
 
-var allEnemies = [
+const allEnemies = [
 new Enemy(0, 50, 25),
 new Enemy(50, 150, 35),
 new Enemy(25, 240, 45)
@@ -93,27 +93,26 @@ new Enemy(25, 240, 45)
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
 Player.prototype.handleInput = function(keyPress) {
-    if (keyPress == 'left') {
-        player.x -= 96;
+  if (keyPress == 'left') {
+      player.x -= 96;
     }
-    if (keyPress == 'right') {
-        player.x += 96;
+  if (keyPress == 'right') {
+      player.x += 96;
     }
-    if (keyPress == 'down') {
-        player.y += 96;
+  if (keyPress == 'down') {
+      player.y += 96;
     }
-    if (keyPress == 'up') {
-        player.y -= 96;
+  if (keyPress == 'up') {
+      player.y -= 96;
     }
 }
